@@ -1,0 +1,80 @@
+
+<header class="navbar">
+    <div class="logo">
+      <img style="cursor: pointer;"  src="../../assets/img/logo.png" alt="Logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" (input)="search($event)" placeholder="Search..." *ngIf="ProductsDup.length>0 && ProductsDup">
+      <!-- <button type="button"><i class="fa fa-search"></i></button> -->
+    </div>
+    <div class="navbar-items">
+      <div class="cart-icon" (click)="NavigateToCart()">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="badge">{{GetTheCartCount()}}</span>
+      </div>
+      <div class="profile-icon" (click)="NavigateToProfile()" (mouseover)="showProfile = true" (mouseleave)="showProfile = false">
+        <i class="fa fa-user"></i>
+      </div>
+    </div>
+  </header>
+  
+  <div class="profile-dropdown" *ngIf="showProfile">
+    <!-- Profile dropdown content -->
+    <ul>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+  
+  
+
+<div class="container mt-3">
+    <!-- <h2 class="text-center mb-4">CATEGORIES</h2> -->
+    <div class="row">
+      <div class="col-12">
+        <div class="category-list">
+          <ul class="list-unstyled d-flex flex-wrap">
+            <li *ngFor="let category of CategoriesList" (click)="GetProductsByCategory(category)" class="category-item col-3 text-center">{{ category | uppercase }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row"  *ngIf="Products.length>0">
+        <div class="container" >
+            <h2 class="text-center m-4">{{CategoryName | uppercase}}</h2>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let product of Products">
+                <div class="product-card" style="cursor: pointer;" mat-raised-button (click)="ViewProductDescription(product.id)">
+                  <img [src]="product.image" style="max-width: 500px;max-height: 300px;" alt="{{ product.id }}" class="product-image">
+                  <div class="product-name">{{ product.title }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    
+  </div>
+
+ 
+  
+  
+
+  <!-- <div class="container">
+    <h2 class="text-center mb-4">Categories</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="category-list">
+          <ul>
+            <li *ngFor="let category of CategoriesList" class="category-item">{{ category }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+  
+  

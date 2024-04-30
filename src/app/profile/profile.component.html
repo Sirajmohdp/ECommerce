@@ -1,0 +1,48 @@
+<header class="navbar">
+    <div class="logo">
+      <img style="cursor: pointer;" (click)="NavigateToHome()" src="../../assets/img/logo.png" alt="Logo">
+    </div>
+    <div class="search-bar">
+        
+    <h4 class="text-center">USER PROFILE</h4>
+      <!-- <input type="text" (input)="search($event)" placeholder="Search..." *ngIf="ProductsDup.length>0 && ProductsDup"> -->
+      <!-- <button type="button"><i class="fa fa-search"></i></button> -->
+    </div>
+    <div class="navbar-items">
+      <div class="cart-icon" (click)="NavigateToCart()">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="badge">{{GetTheCartCount()}}</span>
+      </div>
+      <div class="profile-icon" (click)="NavigateToProfile()" (mouseover)="showProfile = true" (mouseleave)="showProfile = false">
+        <i class="fa fa-user"></i>
+      </div>
+    </div>
+  </header>
+
+<div class="profile-container">
+    
+    <div class="row">
+    <div class="profile-header col-md-6" style="float: right;">
+      <img src="../../assets/img/user.jpg" alt="User Avatar">
+    </div>
+    <div class="col-md-6">
+    <div class="profile-info ">
+      <h2 *ngIf="UserData.username">{{UserData.username}}</h2>
+      <p *ngIf="UserData.email">{{UserData.email}}</p>
+      <p *ngIf="UserData.phone">{{UserData.phone}}</p>
+    </div>
+    <div class="profile-settings">
+      <h2>Settings</h2>
+      <ul>
+        <li><a href="#">Edit Profile</a></li>
+        <li><a href="#">Change Password</a></li>
+        <li><a href="#">Privacy Settings</a></li>
+      </ul>
+    </div>
+    <div class="profile-actions">
+      <button class="btn-edit m-1">Edit Profile</button>
+      <button class="btn-logout m-1">Logout</button>
+    </div>
+</div>
+</div>
+  </div>
